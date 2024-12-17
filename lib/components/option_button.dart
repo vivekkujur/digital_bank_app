@@ -1,30 +1,48 @@
+import 'package:digitalbankapp/view/send_money_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../base/constants.dart';
 import '../base/styles/app_styles.dart';
-import '../base/styles/media.dart';
 
 class OptionButton extends StatefulWidget {
-  const OptionButton({super.key, required this.buttonName, required this.icons});
+  const OptionButton(
+      {super.key,
+      required this.buttonName,
+      required this.icons,
+      required this.action});
   final String buttonName;
   final String icons;
-
-
+  final ButtonAction action;
 
   @override
-  State<OptionButton> createState() => _OptionButtonState(buttonName,icons);
+  State<OptionButton> createState() =>
+      _OptionButtonState(buttonName, icons, action);
 }
 
 class _OptionButtonState extends State<OptionButton> {
   final String buttonName;
   final String icons;
+  final ButtonAction action;
 
-  _OptionButtonState(this.buttonName,this.icons);
+  _OptionButtonState(this.buttonName, this.icons, this.action);
 
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
-      onTap: (){
-
+    return InkWell(
+      onTap: () {
+        switch (action) {
+          case ButtonAction.sendMoney:
+            {
+              Get.to(const SendMoneyScreen());
+            }
+          case ButtonAction.transaction:
+            {
+              Get.to(const SendMoneyScreen());
+            }
+          default:
+            {}
+        }
       },
       child: Container(
         margin: EdgeInsets.only(right: 20),
@@ -37,24 +55,24 @@ class _OptionButtonState extends State<OptionButton> {
               decoration: BoxDecoration(
                 color: AppStyles.gray3,
                 borderRadius: BorderRadius.circular(10),
-                border:
-                Border.all(width: 0, color: AppStyles.primaryColor),
+                border: Border.all(width: 0, color: AppStyles.primaryColor),
               ),
               child: Container(
                 width: 30,
                 height: 30,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage(icons))
-                ),
+                    image: DecorationImage(image: AssetImage(icons))),
               ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Container(
                 alignment: Alignment.center,
-                child: Text( buttonName ,style: AppStyles.textStyleGreyH3.copyWith(fontSize: 16),textAlign: TextAlign.center)
-            ),
-
+                child: Text(buttonName,
+                    style: AppStyles.textStyleGreyH3.copyWith(fontSize: 16),
+                    textAlign: TextAlign.center)),
           ],
         ),
       ),

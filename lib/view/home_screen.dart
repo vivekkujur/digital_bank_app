@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 20),
-            child: TopBarComponent(),
+            child: TopBarComponent(title: "Maya Wallet",),
           ),
           const WalletScreen(),
           const OptionsComponent(),

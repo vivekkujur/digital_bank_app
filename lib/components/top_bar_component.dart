@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../base/styles/app_styles.dart';
 
 class TopBarComponent extends StatelessWidget {
-  const TopBarComponent({super.key});
-
+  const TopBarComponent({super.key, required this.title});
+final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,12 +23,21 @@ class TopBarComponent extends StatelessWidget {
               border:
               Border.all(width: 0, color: AppStyles.primaryColor)),
         ),
+        Expanded(
+          flex:1,
+          child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              alignment: Alignment.centerLeft,
+              child: Text(title,
+                  style: AppStyles.headerTextStyle1.copyWith(color: AppStyles.secondary),
+                  textAlign: TextAlign.left)),
+        ),
         Container(
           height: 40,
           width: 50,
           margin: const EdgeInsets.symmetric(horizontal: 30),
           alignment: Alignment.center,
-          child: const Icon(FluentSystemIcons.ic_fluent_chat_filled),
+          child: const Icon(FluentSystemIcons.ic_fluent_alert_filled),
         ),
       ],
 

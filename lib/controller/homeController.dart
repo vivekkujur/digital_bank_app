@@ -6,5 +6,10 @@ class HomeController extends GetxController{
   var showBalance = true.obs;
 
 
+  // send money page
+  // var amountINoput =
+
+
+
 
 }

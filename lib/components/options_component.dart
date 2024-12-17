@@ -1,3 +1,4 @@
+import 'package:digitalbankapp/base/constants.dart';
 import 'package:digitalbankapp/components/option_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,8 +21,8 @@ class _OptionsComponentState extends State<OptionsComponent> {
       child: const Row(
         children: [
 
-          OptionButton(buttonName: "Send\nmoney",icons: AddMedia.sendMoney,),
-          OptionButton(buttonName: "Transactions\n",icons: AddMedia.transaction)
+          OptionButton(buttonName: "Send\nmoney",icons: AddMedia.sendMoney,action: ButtonAction.sendMoney,),
+          OptionButton(buttonName: "Transactions\n",icons: AddMedia.transaction,action: ButtonAction.transaction,)
 
 
         ],
