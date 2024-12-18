@@ -1,6 +1,9 @@
 import 'package:digitalbankapp/base/constants.dart';
+import 'package:digitalbankapp/components/error_bottomsheet.dart';
 import 'package:digitalbankapp/components/success_bottomsheet.dart';
+import 'package:digitalbankapp/controller/send_money_controller.dart';
 import 'package:digitalbankapp/view/send_money_screen.dart';
+import 'package:digitalbankapp/view/transaction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../base/styles/app_styles.dart';
@@ -14,6 +17,9 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final SendMoneyController controller  = Get.put(SendMoneyController());
+
     return InkWell(
       onTap:(){
 
@@ -22,16 +28,23 @@ class LoginButton extends StatelessWidget {
             Get.to(const HomeScreen());
 
           }
+          case ButtonAction.goBack :{
+            Get.back();
+
+          }
           case ButtonAction.sendMoneySubmit :{
+
+            // Get.snackbar("title", controller.amountTextController.text);
+
             showModalBottomSheet<void>(
               context: context,
               builder: (BuildContext context) {
-                return const SuccessBottomsheet();
+                return const ErrorBottomsheet();
               });
 
           }
-          case ButtonAction.login :{
-            Get.to(HomeScreen());
+          case ButtonAction.transaction :{
+            Get.to(TransactionScreen());
 
           }
           default:{

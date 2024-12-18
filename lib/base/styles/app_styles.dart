@@ -32,7 +32,7 @@ class AppStyles{
   );
   static TextStyle priceTextStyle=  TextStyle(
     color:secondary,
-    fontSize: 30,
+    fontSize: 26,
     fontWeight: FontWeight.w700,
     letterSpacing:-2,
   );

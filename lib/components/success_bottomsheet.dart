@@ -14,10 +14,9 @@ class SuccessBottomsheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600,
+      height: Get.height*0.8,
       decoration: BoxDecoration(
           color: Colors.white,
-
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
       ),
       child: Center(

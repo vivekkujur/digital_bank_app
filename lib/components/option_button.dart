@@ -1,4 +1,5 @@
 import 'package:digitalbankapp/view/send_money_screen.dart';
+import 'package:digitalbankapp/view/transaction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +39,7 @@ class _OptionButtonState extends State<OptionButton> {
             }
           case ButtonAction.transaction:
             {
-              Get.to(const SendMoneyScreen());
+              Get.to(const TransactionScreen());
             }
           default:
             {}

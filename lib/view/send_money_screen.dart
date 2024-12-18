@@ -1,4 +1,5 @@
 import 'package:digitalbankapp/components/success_bottomsheet.dart';
+import 'package:digitalbankapp/controller/send_money_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,9 @@ class SendMoneyScreen extends StatefulWidget {
 }
 
 class _SendMoneyScreenState extends State<SendMoneyScreen> {
+
+  final SendMoneyController controller  = Get.put(SendMoneyController()) ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,11 +42,40 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
                     Container(
                       alignment: Alignment.centerRight,
                       child: const Text(
+                        "Mobile number to send money",
+                        textAlign: TextAlign.end,
+                      ),
+                    ),
+                    TextField(
+                        controller: controller.numberTextController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp(r'[\d.]')),
+                        ],
+                        decoration: InputDecoration(
+                          fillColor: AppStyles.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          hintText: "Enter mobile number ",
+                        ))
+                  ],
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.centerRight,
+                      child: const Text(
                         "Amount",
                         textAlign: TextAlign.end,
                       ),
                     ),
                     TextField(
+                      controller: controller.amountTextController,
                         keyboardType: TextInputType.number,
                         inputFormatters: [
                           FilteringTextInputFormatter.allow(RegExp(r'[\d.]')),

@@ -22,7 +22,7 @@ class FormPasswordField extends StatelessWidget {
           ),
           TextField(
             decoration: InputDecoration(
-              fillColor: AppStyles.gray2,
+                fillColor: AppStyles.white,
               filled: true,
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(10)),

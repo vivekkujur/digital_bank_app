@@ -10,5 +10,13 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "users": [
+    {
+      "userName" : "maya",
+      "password" : "12345"
+    }
+  ]
+
+
 }

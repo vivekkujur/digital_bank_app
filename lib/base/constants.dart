@@ -10,6 +10,7 @@ enum ButtonAction{
   transaction,
   login,
   sendMoneySubmit,
-  home
+  home,
+  goBack
 
 }
