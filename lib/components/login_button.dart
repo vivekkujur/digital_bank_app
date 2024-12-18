@@ -1,6 +1,7 @@
 import 'package:digitalbankapp/base/constants.dart';
 import 'package:digitalbankapp/components/error_bottomsheet.dart';
 import 'package:digitalbankapp/components/success_bottomsheet.dart';
+import 'package:digitalbankapp/controller/login_controller.dart';
 import 'package:digitalbankapp/controller/send_money_controller.dart';
 import 'package:digitalbankapp/view/send_money_screen.dart';
 import 'package:digitalbankapp/view/transaction_screen.dart';
@@ -19,6 +20,7 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final SendMoneyController controller  = Get.put(SendMoneyController());
+    final LoginController loginController  = Get.put(LoginController());
 
     return InkWell(
       onTap:(){
@@ -39,7 +41,7 @@ class LoginButton extends StatelessWidget {
             showModalBottomSheet<void>(
               context: context,
               builder: (BuildContext context) {
-                return const ErrorBottomsheet();
+                return const SuccessBottomsheet();
               });
 
           }
@@ -47,7 +49,11 @@ class LoginButton extends StatelessWidget {
             Get.to(TransactionScreen());
 
           }
+          case ButtonAction.login:{
+            loginController.getLoginApi();
+          }
           default:{
+
           Get.to(HomeScreen());
         }
 

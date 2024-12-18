@@ -34,8 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
              ),
            ),
-
-
           ),
           Text(
             "Its everything and a bank",
