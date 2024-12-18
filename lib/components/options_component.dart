@@ -19,6 +19,7 @@ class _OptionsComponentState extends State<OptionsComponent> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 40),
       child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
 
           OptionButton(buttonName: "Send\nmoney",icons: AddMedia.sendMoney,action: ButtonAction.sendMoney,),

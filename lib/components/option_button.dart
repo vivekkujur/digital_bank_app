@@ -48,6 +48,7 @@ class _OptionButtonState extends State<OptionButton> {
         margin: EdgeInsets.only(right: 20),
         alignment: Alignment.center,
         width: 100,
+        height: 120,
         child: Column(
           children: [
             Container(
@@ -71,7 +72,7 @@ class _OptionButtonState extends State<OptionButton> {
             Container(
                 alignment: Alignment.center,
                 child: Text(buttonName,
-                    style: AppStyles.textStyleGreyH3.copyWith(fontSize: 16),
+                    style: AppStyles.textStyleGreyH3.copyWith(fontSize: 14),
                     textAlign: TextAlign.center)),
           ],
         ),

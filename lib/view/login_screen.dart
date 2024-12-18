@@ -1,3 +1,4 @@
+import 'package:digitalbankapp/base/constants.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -45,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
             name: "Username", icons: FluentSystemIcons.ic_fluent_person_filled,
           ),
           FormPasswordField(),
-          LoginButton(btnName: "Login"),
+          LoginButton(btnName: "Login",action: ButtonAction.login,),
 
         ],
       ),

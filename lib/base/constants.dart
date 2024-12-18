@@ -7,6 +7,9 @@ class Constants{
 
 enum ButtonAction{
   sendMoney ,
-  transaction
+  transaction,
+  login,
+  sendMoneySubmit,
+  home
 
 }
