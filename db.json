@@ -17,7 +17,14 @@
     {
       "userName" : "maya",
       "password" : "12345"
+      "balance" : 306000
     }
+  ],
+   "transactions": [
+     { "id": 1, "payto": "8746123456", "amount": 1000, "time": "12 dec 2024" },
+     { "id": 2, "payto": "8746123456", "amount": 456, "time": "11 dec 2024" },
+
+
   ]
 
 
