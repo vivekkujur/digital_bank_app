@@ -26,7 +26,8 @@ class LoginButton extends StatelessWidget {
         switch (action) {
           case ButtonAction.home:
             {
-              Get.to(const HomeScreen());
+              Get.offAll(HomeScreen());
+              // Get.to(const HomeScreen());
             }
           case ButtonAction.goBack:
             {

@@ -33,12 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Divider(),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text("Transactions",style: AppStyles.headerTextStyle1.copyWith(fontSize: 24),),
-          ),
-          Container( height:400,child: TransactionList(homePage: true,))
-
 
         ],
       ),

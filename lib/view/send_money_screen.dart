@@ -30,6 +30,7 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
     controller.numberTextController.clear();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

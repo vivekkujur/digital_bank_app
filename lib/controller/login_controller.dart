@@ -26,8 +26,8 @@ class LoginController  extends GetxController{
      if(response.data["userName"]==userNameTextController.text && response.data["password"]==passwordTextController.text ){
        box.put(HiveBoxKey.IS_LOGIN , true);
        box.put(HiveBoxKey.USER_NAME , userNameTextController.text);
+       Get.offAll(HomeScreen());
 
-       Get.to(HomeScreen());
      }
      showProgress.value = false;
 
@@ -44,7 +44,8 @@ class LoginController  extends GetxController{
 
     box.put(HiveBoxKey.IS_LOGIN , false);
     box.put(HiveBoxKey.USER_NAME , "");
-    Get.to(LoginScreen());
+    Get.offAll(LoginScreen());
+
 
   }
 
