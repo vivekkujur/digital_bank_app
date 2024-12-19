@@ -62,7 +62,6 @@ class SendMoneyController extends GetxController{
 
       try{
         var response = await postSendMoneyApi();
-        print(response);
         showModalBottomSheet<void>(
             context: context,
             builder: (BuildContext context) {

@@ -16,20 +16,6 @@ class HomeController extends GetxController{
   late TextEditingController  userNameTextController ;
   late TextEditingController  passwordTextController ;
 
-  // Future<List<dynamic>>
-  getLoginApi() async {
-    try{
-      final response = await dio.get("${Constants.BASEURL}/profile");
-      print(response.data["name"]);
-      balance.value = response.data["balance"].toString();
-      if(response.data["userName"]==userNameTextController.text && response.data["password"]==passwordTextController.text ){
-        Get.to(HomeScreen());
-      }
-    }on DioException catch(e){
-      throw Exception( "Failed to login");
-    }
-  }
-
   getTransactionApi() async {
     try{
       final response = await dio.get("${Constants.BASEURL}/transactions");
@@ -45,7 +31,6 @@ class HomeController extends GetxController{
   @override
   void onInit() {
     super.onInit();
-    getLoginApi();
     getTransactionApi();
     userNameTextController = TextEditingController();
     passwordTextController = TextEditingController();
@@ -57,7 +42,6 @@ class HomeController extends GetxController{
     passwordTextController.dispose();
     super.onClose();
   }
-
 
 
 }

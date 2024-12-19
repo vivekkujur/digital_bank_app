@@ -1,16 +1,24 @@
 # digitalbankapp
 
-A new Flutter project.
+Digital banking app 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Run the following command in the project directory to fetch all dependencies:
 
-A few resources to get you started if this is your first Flutter project:
+Install Dependencies
+- flutter clean
+- flutter pub get
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Run the Project
+On iOS Simulator or Device / On Android Emulator or Device
+- flutter run
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Login credentials
+- username :  maya
+- password : 12345
+
+
+
+
+

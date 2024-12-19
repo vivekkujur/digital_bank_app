@@ -16,27 +16,32 @@ class LoginController  extends GetxController{
   late TextEditingController  passwordTextController ;
   var showProgress = false.obs;
 
-  // Future<List<dynamic>>
   getLoginApi() async {
     showProgress.value = true;
     var box =  await Hive.openBox(HiveBoxKey.DB_BOX);
+    var response = await checkLoginDataFromApi();
+    if(response==true){
+      box.put(HiveBoxKey.IS_LOGIN , true);
+      box.put(HiveBoxKey.USER_NAME , userNameTextController.text);
+      Get.offAll(HomeScreen());
+      showProgress.value = false;
+    }
+    showProgress.value = false;
 
+  }
+
+ Future<bool> checkLoginDataFromApi ()async{
     try{
-     final response = await dio.get("${Constants.BASEURL}/profile");
-     if(response.data["userName"]==userNameTextController.text && response.data["password"]==passwordTextController.text ){
-       box.put(HiveBoxKey.IS_LOGIN , true);
-       box.put(HiveBoxKey.USER_NAME , userNameTextController.text);
-       Get.offAll(HomeScreen());
-
-     }
-     showProgress.value = false;
+      final response = await dio.get("${Constants.BASEURL}/profile");
+      if(response.data["userName"]==userNameTextController.text && response.data["password"]==passwordTextController.text ){
+        return true;
+      }
+      return false;
 
     }on DioException catch(e){
-      showProgress.value = false;
-
       throw Exception( "Failed to login");
-   }
 
+    }
   }
 
   signOut() async {
