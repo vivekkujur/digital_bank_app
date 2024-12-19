@@ -27,10 +27,23 @@ class HomeController extends GetxController{
     }
   }
 
+  getBalanceFromApi ()async{
+    try{
+      final response = await dio.get("${Constants.BASEURL}/profile");
+      print(response.data["balance"]);
+      balance.value = response.data["balance"].toString();
+
+    }on DioException catch(e){
+      throw Exception( "Failed to login");
+
+    }
+  }
+
 
   @override
   void onInit() {
     super.onInit();
+    getBalanceFromApi();
     getTransactionApi();
     userNameTextController = TextEditingController();
     passwordTextController = TextEditingController();
