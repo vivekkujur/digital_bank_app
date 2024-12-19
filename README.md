@@ -18,6 +18,11 @@ Login credentials
 - username :  maya
 - password : 12345
 
+<img src="assets/img1.png" alt="App Screenshot" width="300"/>
+<img src="assets/img2.png" alt="App Screenshot" width="300"/>
+
+
+
 
 
 
