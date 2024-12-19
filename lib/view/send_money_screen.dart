@@ -17,86 +17,109 @@ class SendMoneyScreen extends StatefulWidget {
   State<SendMoneyScreen> createState() => _SendMoneyScreenState();
 }
 
-class _SendMoneyScreenState extends State<SendMoneyScreen> {
 
-  final SendMoneyController controller  = Get.put(SendMoneyController()) ;
+
+
+class _SendMoneyScreenState extends State<SendMoneyScreen> {
+  final SendMoneyController controller = Get.put(SendMoneyController());
+
+  @override
+  void initState() {
+    super.initState();
+    controller.amountTextController.clear();
+    controller.numberTextController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-            flex:1,
-            child: ListView(children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                child: TopBarComponent(
-                  title: "Send Money",
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerRight,
-                      child: const Text(
-                        "Mobile number to send money",
-                        textAlign: TextAlign.end,
-                      ),
+          Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: ListView(children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: TopBarComponent(
+                      title: "Send Money",
                     ),
-                    TextField(
-                        controller: controller.numberTextController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp(r'[\d.]')),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: AppStyles.white,
-                          filled: true,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: "Enter mobile number ",
-                        ))
-                  ],
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerRight,
-                      child: const Text(
-                        "Amount",
-                        textAlign: TextAlign.end,
-                      ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.centerRight,
+                          child: const Text(
+                            "Mobile number to send money",
+                            textAlign: TextAlign.end,
+                          ),
+                        ),
+                        TextField(
+                            controller: controller.numberTextController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[\d.]')),
+                            ],
+                            decoration: InputDecoration(
+                              fillColor: AppStyles.white,
+                              filled: true,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              hintText: "Enter mobile number ",
+                            ))
+                      ],
                     ),
-                    TextField(
-                      controller: controller.amountTextController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp(r'[\d.]')),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: AppStyles.white,
-                          filled: true,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: "Enter Amount",
-                        ))
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.centerRight,
+                          child: const Text(
+                            "Amount",
+                            textAlign: TextAlign.end,
+                          ),
+                        ),
+                        TextField(
+                            controller: controller.amountTextController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[\d.]')),
+                            ],
+                            decoration: InputDecoration(
+                              fillColor: AppStyles.white,
+                              filled: true,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              hintText: "Enter Amount",
+                            ))
+                      ],
+                    ),
+                  ),
+                ]),
               ),
-
-
-
-
-            ]),
+              LoginButton(
+                btnName: "Submit",
+                action: ButtonAction.sendMoneySubmit,
+              ),
+            ],
           ),
-          LoginButton(btnName: "Submit",action: ButtonAction.sendMoneySubmit,),
+          Obx(() => controller.showProgress.value == true
+              ? Center(
+                  child: CircularProgressIndicator(
+                    color: AppStyles.secondary,
+                    backgroundColor: AppStyles.primaryColor,
+                  ),
+                )
+              : Container()),
         ],
       ),
     );

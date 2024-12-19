@@ -1,4 +1,5 @@
 import 'package:digitalbankapp/base/styles/app_styles.dart';
+import 'package:digitalbankapp/components/transaction_list.dart';
 import 'package:digitalbankapp/controller/homeController.dart';
 import 'package:digitalbankapp/view/wallet_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text("Transactions",style: AppStyles.headerTextStyle1.copyWith(fontSize: 24),),
-          )
+          ),
+          Container( height:400,child: TransactionList(homePage: true,))
+
 
         ],
       ),

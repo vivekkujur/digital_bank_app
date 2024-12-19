@@ -41,4 +41,10 @@ class AppStyles{
     fontSize: 18,
     fontWeight: FontWeight.w500,
   );
+
+  static TextStyle textStyleGreyH2=  TextStyle(
+    color:gray,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  );
 }

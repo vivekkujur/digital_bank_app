@@ -12,6 +12,15 @@ enum ButtonAction{
   login,
   sendMoneySubmit,
   home,
-  goBack
+  goBack,
+  signOut
 
+}
+
+
+class HiveBoxKey{
+  static const DB_BOX= "dgBox";
+  static const IS_LOGIN= "isLogin";
+  static const BALANCE= "balance";
+  static const USER_NAME= "userName";
 }

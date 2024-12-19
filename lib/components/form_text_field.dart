@@ -1,7 +1,9 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../base/styles/app_styles.dart';
+import '../controller/login_controller.dart';
 
 class FormTextField extends StatelessWidget {
   const FormTextField({super.key, required this.name, required this.icons});
@@ -10,6 +12,8 @@ class FormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController  = Get.find();
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 8),
       child: Column(
@@ -19,6 +23,7 @@ class FormTextField extends StatelessWidget {
             child: Text(name,textAlign: TextAlign.end,),
           ),
           TextField(
+            controller: loginController.userNameTextController,
             decoration: InputDecoration(
               fillColor: AppStyles.white,
               filled: true,

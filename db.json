@@ -9,14 +9,21 @@
     { "id": 2, "body": "some comment", "postId": 1 }
   ],
   "profile": {
-    "name": "typicode"
+    "name": "testty",
+    "userName" : "maya",
+    "password" : "12345",
+    "balance" : 306000
   },
   "users": [
     {
       "userName" : "maya",
       "password" : "12345"
     }
+  ],
+  "transactions": [
+    {"id": 1734590334962438, "payto": 8765748354, "amount": 3000, "time": "12/19/2024 12:08 PM"},
+    {"id": 1734590368280995, "payto": 9865748936, "amount": 2000, "time": "12/19/2024 12:09 PM"},
+    {"id": 1734590397395331, "payto": 9865748745, "amount": 1000, "time": "12/19/2024 12:09 PM"}
   ]
-
 
 }

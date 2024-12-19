@@ -1,14 +1,18 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../base/styles/app_styles.dart';
+import '../controller/login_controller.dart';
 
 class FormPasswordField extends StatelessWidget {
   const FormPasswordField({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController  = Get.find();
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Column(
@@ -21,6 +25,7 @@ class FormPasswordField extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: loginController.passwordTextController,
             decoration: InputDecoration(
                 fillColor: AppStyles.white,
               filled: true,

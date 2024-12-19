@@ -1,3 +1,4 @@
+import 'package:digitalbankapp/components/logout_bottomsheet.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,17 +30,27 @@ final String title;
       )
 
         :
-        Container(
-          height: 40,
-          width: 40,
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          alignment: Alignment.center,
-          child: const Icon(FluentSystemIcons.ic_fluent_person_regular),
-          decoration: BoxDecoration(
-              color: Color(0x1a2cf19e),
-              borderRadius: BorderRadius.circular(50),
-              border:
-              Border.all(width: 0, color: AppStyles.primaryColor)),
+        InkWell(
+          onTap: (){
+
+            showModalBottomSheet<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return  LogoutBottomsheet();
+                });
+          },
+          child: Container(
+            height: 40,
+            width: 40,
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            alignment: Alignment.center,
+            child: const Icon(FluentSystemIcons.ic_fluent_person_regular),
+            decoration: BoxDecoration(
+                color: Color(0x1a2cf19e),
+                borderRadius: BorderRadius.circular(50),
+                border:
+                Border.all(width: 0, color: AppStyles.primaryColor)),
+          ),
         ),
         Expanded(
           flex:1,

@@ -9,7 +9,9 @@ import '../base/styles/media.dart';
 import 'login_button.dart';
 
 class SuccessBottomsheet extends StatelessWidget {
-  const SuccessBottomsheet({super.key});
+  const SuccessBottomsheet({super.key, this.response});
+
+  final response ;
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +47,12 @@ class SuccessBottomsheet extends StatelessWidget {
                 children: [
                   ListTile(
                     leading: Icon(FluentSystemIcons.ic_fluent_person_filled),
-                    title: Text("7366848484"),
-                    trailing: Text("100000.00"),
+                    title: Text(response["payto"].toString()),
+                    trailing: Text(response["amount"].toString()),
                   ),
                   ListTile(
                     title: Text("Date"),
-                    trailing: Text("12-12-2024"),
+                    trailing: Text(response["time"].toString()),
                   )
                 ],
               ),
